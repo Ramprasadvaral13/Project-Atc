@@ -10,4 +10,4 @@ spec:
   ports:
     - protocol: TCP
       port: 80               # External port
-      targetPort: 80        # Port on the job-app container
+      targetPort: 80        # Port on the static-page container
