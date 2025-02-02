@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static-webpage-deployment
+  namespace: demo-ns
+  labels:
+    app: static-webpage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: static-webpage
+  template:
+    metadata:
+      labels:
+        app: static-webpage
+    spec:
+      containers:
+        - name: static-webpage
+          image: ramprasadv7/static-webpage-1:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
